@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include<time.h>
+int main() {
+    struct tm*ptr;
+    time_t t;
+    t=time(NULL);
+    ptr=localtime(&t);
+    printf("\n%s",asctime(ptr));
+    int choice;
+    printf("1. Reverse number\n");
+    printf("2. swaping No\n");
+    printf("3. prime No\n");
+    printf("4. Even No\n");
+    printf("5.alphabet letter\n");
+    printf("6.Exit \n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+    switch (choice) {
+        case 1: {
+            int n, k, x = 0;
+     printf("Enter number toreverse: ");
+       scanf("%d", &n);
+          while (n > 0) {
+                k = n % 10;
+                x = x * 10 + k;
+                n = n / 10;
+            }
+  printf("Reverse number = %d\n", x);
+            break;
+        }
+        case 2: {
+            int i,a,b;
+            printf("enter two No \n");
+            scanf("%d,%d",&a,&b);
+            while(i>0){
+                i=a;
+                a=b;
+                b=i;
+            }
+            printf("%d%d",a,b);
+            break;
+        }
+
+        case 3:{
+            int r,s,t,u;
+            printf("enter prime no\n");
+            scanf("%d",&u);
+            for(r=2; r<=u; r++){
+                t=1;
+            for(s=2; s<=r/2; s++){
+                if(r%s==0){
+                    t=0;
+                    break;
+                }
+                if(t==1){
+                    printf("%d\n",r);
+                }
+            }
+            }
+                break;
+        }
+        case 4:{
+            //even or odd numbers
+    int i;
+    printf("enter the number\n ");
+    scanf("%d",&i);
+    if(i%2==0)
+    //if(i/2*2)
+ //   if(i%2)
+   // if(i&1==i)
+        printf("%d is even  number ",i);
+    else 
+        printf("%d is  odd number ",i);
+         break;
+        }
+        case 5:{
+//    alphabet letter 
+   char x='a';
+            if(choice=='a'){
+   while(x<='z'){
+        printf("%c ",x);
+            }
+                x++;
+      }
+     else{
+                for(x='A'; x<'Z'; x++)
+        printf("%c ",x);
+     }
+          break;
+        }
+        case 6:
+            printf("Exit program\n");
+            break;
+
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}
